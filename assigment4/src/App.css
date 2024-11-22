@@ -1,45 +1,92 @@
-.app {
+/* General Styles */
+body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.app {
   text-align: center;
   padding: 20px;
 }
 
-.game-container {
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.game-layout {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
+}
+
+/* Left Section */
+.left-section {
+  width: 200px;
+  text-align: left;
 }
 
 .result-section,
 .animal-name-section {
-  width: 150px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
-.animal-selection-section {
+.result-section h3,
+.animal-name-section h3 {
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.result-section p,
+.animal-name-section p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Right Section */
+.right-section {
   flex-grow: 1;
 }
 
-.animal-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 100px);
-  gap: 10px;
-  justify-content: center;
+.animal-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.animal-card {
+.animal-table tr {
+  text-align: center;
+}
+
+.animal-table td {
+  padding: 10px;
   cursor: pointer;
-  border: 1px solid #ddd;
-  padding: 5px;
-  transition: transform 0.2s;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-.animal-card:hover {
+.animal-table td:hover {
   transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.animal-card img {
+.animal-table td img {
   width: 100px;
   height: 100px;
   object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Highlight selected card */
+.animal-table td.selected {
+  border: 3px solid #4caf50; /* Green border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

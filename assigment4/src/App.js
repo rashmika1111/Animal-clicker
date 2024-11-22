@@ -20,33 +20,43 @@ function App() {
   return (
     <div className="app">
       <h1>Animal Matching Game</h1>
-      <div className="game-container">
-        {/* Result Section */}
-        <div className="result-section">
-          <h3>Result</h3>
-          <p>{result}</p>
-        </div>
-
-        {/* Animal Name Section */}
-        <div className="animal-name-section">
-          <h3>Animal Name</h3>
-          <p>{currentAnimal.name}</p>
-        </div>
-
-        {/* Animal Selection Section */}
-        <div className="animal-selection-section">
-          <h3>Select the Animal</h3>
-          <div className="animal-grid">
-            {animals.map((animal) => (
-              <div
-                key={animal.name}
-                className="animal-card"
-                onClick={() => handleAnimalClick(animal)}
-              >
-                <img src={animal.img} alt={animal.name} />
-              </div>
-            ))}
+      <div className="game-layout">
+        {/* Left Section */}
+        <div className="left-section">
+          {/* Result Section */}
+          <div className="result-section">
+            <h3>Result</h3>
+            <p>{result}</p>
           </div>
+
+          {/* Animal Name Section */}
+          <div className="animal-name-section">
+            <h3>Animal Name</h3>
+            <p>{currentAnimal.name}</p>
+          </div>
+        </div>
+
+        {/* Right Section: Animal Grid */}
+        <div className="right-section">
+          <table className="animal-table">
+            <tbody>
+              {Array.from({ length: 4 }, (_, rowIndex) => (
+                <tr key={rowIndex}>
+                  {animals
+                    .slice(rowIndex * 4, rowIndex * 4 + 4) // Get 4 animals per row
+                    .map((animal) => (
+                      <td
+                        key={animal.name}
+                        className="animal-card"
+                        onClick={() => handleAnimalClick(animal)}
+                      >
+                        <img src={animal.img} alt={animal.name} />
+                      </td>
+                    ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
