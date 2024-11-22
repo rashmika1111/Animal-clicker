@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { animals } from "./data/AnimalsDb"; // Import the animal database
-import "./App.css"; // Import CSS for styling
+import { animals } from "./data/AnimalsDb"; 
+import "./App.css";
 
 function App() {
   const [currentAnimal, setCurrentAnimal] = useState(animals[0]);
   const [result, setResult] = useState("...");
 
-  // Handle animal click
+ 
   const handleAnimalClick = (selectedAnimal) => {
     if (selectedAnimal.name === currentAnimal.name) {
       setResult("WIN");
@@ -20,7 +20,7 @@ function App() {
     <div className="app">
       <h1>Animal Matching Game</h1>
       <div className="game-layout">
-        {/* Left Section */}
+      
         <div className="left-section">
           <div className="result-section">
             <h3>Result</h3>
@@ -32,7 +32,7 @@ function App() {
           </div>
         </div>
 
-        {/* Right Section */}
+       
         <div className="right-section">
           <table className="animal-table">
             <tbody>
@@ -46,7 +46,7 @@ function App() {
                         className="animal-card"
                         onClick={() => handleAnimalClick(animal)}
                       >
-                        {/* Dynamically construct image paths */}
+                        
                         <img
                           src={require(`./assets/${animal.img}`)}
                           alt={animal.name}
